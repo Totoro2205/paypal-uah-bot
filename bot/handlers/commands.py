@@ -27,14 +27,16 @@ async def cmd_start(message: Message) -> None:
 
 @commands_router.message(Command(commands="rates"))
 async def cmd_help(message: Message) -> None:
-    logger.info(f"Command <y>rates</y> from user <g>{message.from_user.id}</g>")
+    logger.info(
+        f"Command <y>rates</y> from user <g>{message.from_user.full_name} ({message.from_user.id})</g>"
+    )
     rates = await read_rates(number_of_rates=1, start_timestamp=None)
     last_rates: Rates = rates[0][0]
     logger.debug(f"Rates: {last_rates}")
 
     await message.answer(
         f"Exchange rates 🇺🇸 🇺🇦"
-        f"\n{datetime.fromtimestamp(last_rates.timestamp)}:"
+        f"\n{datetime.fromtimestamp(last_rates.timestamp)} (UTC):"
         f"\nPaypal: {last_rates.paypal:.4f}"
         f"\nXE: {last_rates.xe:.4f}"
         f"\nObmenka: {last_rates.obmenka_bid:.2f} / {last_rates.obmenka_ask:.2f}"
@@ -44,7 +46,9 @@ async def cmd_help(message: Message) -> None:
 
 @commands_router.message(Command(commands="chart"))
 async def cmd_help(message: Message, command: CommandObject) -> None:
-    logger.info(f"Command <y>chart</y> from user <g>{message.from_user.id}</g>")
+    logger.info(
+        f"Command <y>chart</y> from user <g>{message.from_user.full_name} ({message.from_user.id})</g>"
+    )
     if command.args is None or command.args == []:
         chart_interval = settings.CHART_TIME
     else:
@@ -101,11 +105,15 @@ async def cmd_help(message: Message, command: CommandObject) -> None:
 
 @commands_router.message(Command(commands="help"))
 async def cmd_help(message: Message) -> None:
-    logger.info(f"Command <y>help</y> from user <g>{message.from_user.id}</g>")
+    logger.info(
+        f"Command <y>help</y> from user <g>{message.from_user.full_name} ({message.from_user.id})</g>"
+    )
     await message.answer(text=help_message)
 
 
 @commands_router.message(Command(commands="about"))
 async def cmd_about(message: Message) -> None:
-    logger.info(f"Command <y>about</y> from user <g>{message.from_user.id}</g>")
+    logger.info(
+        f"Command <y>about</y> from user <g>{message.from_user.full_name} ({message.from_user.id})</g>"
+    )
     await message.answer(text=about_message)

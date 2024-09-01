@@ -8,7 +8,9 @@ help_message = (
     "<b>/about</b> - About this bot"
 )
 
-unsupported_content_message = ("🤷 Unsupported message content!\n"
-                               "Use <b>/help</b> command for help")
+unsupported_content_message = (
+    "🤷 Unsupported message content!\n" "Use <b>/help</b> command for help"
+)
 
-about_message = "This bot was developed just 4fun"
+about_message = ("This bot was developed just 4fun\n"
+                 "Sources: https://github.com/Totoro2205/paypal-uah-bot.git")
