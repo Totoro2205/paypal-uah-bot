@@ -18,7 +18,7 @@ messages_router = Router(name=__name__)
     | F.sticker
 )
 async def message_with_unsupported_content(message: Message):
-    logger.info(f"Unsupported message from user <g>{message.from_user.id}</g>")
+    logger.info(f"Unsupported message from user <g>{message.from_user.full_name} ({message.from_user.id})</g>")
     await message.answer_sticker(
         "CAACAgIAAxkBAAINkmZNIk8x2f9eg2LbFGVK0SvRZPiqAAL5GQACRceASCpKdk9ErHumNQQ"
     )
