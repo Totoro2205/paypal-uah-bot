@@ -1,15 +1,10 @@
 import asyncio
-from typing import Any
-
-from sqlalchemy import String, text, create_engine
 from sqlalchemy.ext.asyncio import (
-    AsyncAttrs,
     AsyncSession,
     create_async_engine,
     async_sessionmaker,
 )
 
-# from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker, Mapped, mapped_column
 from bot.config.config import settings
 from bot.database.models import Base, Rates
 

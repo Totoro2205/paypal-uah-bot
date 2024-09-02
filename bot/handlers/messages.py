@@ -1,7 +1,7 @@
 from bot.utils.logger import logger
 from bot.messages.msg_texts import unsupported_content_message
 from aiogram import Router, F
-from aiogram.types import Message, CallbackQuery
+from aiogram.types import Message
 
 messages_router = Router(name=__name__)
 

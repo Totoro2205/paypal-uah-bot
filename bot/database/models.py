@@ -1,24 +1,8 @@
 from datetime import datetime, UTC
 from typing import Optional, Literal
-
-import sqlalchemy
 from sqlalchemy.orm import DeclarativeBase
-from sqlalchemy import (
-    Column,
-    Enum,
-    ForeignKey,
-    Index,
-    Integer,
-    MetaData,
-    PrimaryKeyConstraint,
-    String,
-    Table,
-    text,
-    BigInteger,
-    DateTime,
-    func,
-    Float,
-)
+from sqlalchemy import BigInteger, Float
+
 from sqlalchemy.ext.asyncio import AsyncAttrs, async_sessionmaker, create_async_engine
 from sqlalchemy.orm import Mapped, mapped_column
 

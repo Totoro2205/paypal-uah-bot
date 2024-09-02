@@ -1,7 +1,7 @@
 import re
 import json
 
-from datetime import datetime, timedelta
+from datetime import timedelta
 
 import httpx
 from aiogram import Bot
