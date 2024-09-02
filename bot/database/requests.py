@@ -3,6 +3,7 @@ from bot.database.models import Rates
 from bot.database.engine import session_maker
 from sqlalchemy import select, insert, desc, asc
 
+
 async def save_rates(
     paypal: float,
     xe: float,
