@@ -23,7 +23,7 @@ loguru==0.7.2
 magic-filter==1.0.12
 matplotlib==3.9.2
 multidict==6.0.5
-numpy==2.1.0
+numpy
 packaging==24.1
 pillow==10.4.0
 pydantic==2.8.2

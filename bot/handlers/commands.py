@@ -36,10 +36,10 @@ async def cmd_help(message: Message) -> None:
 
     await message.answer(
         f"Exchange rates 🇺🇸 🇺🇦"
-        f"\n{datetime.fromtimestamp(last_rates.timestamp)} (UTC):"
+        f"\n{datetime.fromtimestamp(last_rates.timestamp)} UTC:"
         f"\nPaypal: {last_rates.paypal:.4f}"
         f"\nXE: {last_rates.xe:.4f}"
-        f"\nObmenka: {last_rates.obmenka_bid:.2f} / {last_rates.obmenka_ask:.2f}"
+        f"\nObmenka (KYT): {last_rates.obmenka_bid:.2f} / {last_rates.obmenka_ask:.2f}"
         f"\nmonobank: {last_rates.mono_bid:.2f} / {last_rates.mono_ask:.2f}"
     )
 
@@ -79,7 +79,6 @@ async def cmd_help(message: Message, command: CommandObject) -> None:
         Y5.append(float(rate.mono_bid))
         Y6.append(float(rate.mono_ask))
 
-    plt.plot(X, Y1, color="blue", label="Paypal")
     if settings.CHART_XE:
         plt.plot(X, Y2, color="red", label="XE")
     if settings.CHART_OBMENKA:
@@ -88,6 +87,7 @@ async def cmd_help(message: Message, command: CommandObject) -> None:
     if settings.CHART_MONO:
         plt.plot(X, Y5, color="gold", label="mono Bid")
         plt.plot(X, Y6, color="darkorange", label="mono Ask")
+    plt.plot(X, Y1, color="blue", label="Paypal")
     plt.title("USD-UAH")
     plt.xticks(rotation=45)
     plt.grid()
