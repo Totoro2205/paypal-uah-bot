@@ -7,7 +7,7 @@ logger.add(
     sink=sys.stdout,
     format="<white>{time:YYYY-MM-DD HH:mm:ss}</white>"
     " | <level>{level: <8}</level>"
-    " | <cyan><b>{module}:{line}</b></cyan>"
+    " | <cyan>{module}:{line}</cyan>"
     " | <white><b>{message}</b></white>",
     level=settings.LOGGING_LEVEL,
 )
