@@ -48,7 +48,8 @@ async def rates_worker():
                 obmenka_bid=obmenka_bid,
                 obmenka_ask=obmenka_ask,
             )
-
+        except asyncio.CancelledError:
+            raise
         except Exception as _ex:
             logger.debug(f"Exception in rates worker: {repr(_ex)}")
         await asyncio.sleep(settings.RATES_INTERVAL)
