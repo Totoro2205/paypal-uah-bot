@@ -30,7 +30,10 @@ async def main() -> None:
         await bot.delete_webhook(drop_pending_updates=True)
         logger.info(f"Bot started from <y>{await identify_myself()}</y>")
         logger.info(f"Project path: {settings.PROJECT_ROOT}")
-        await asyncio.gather(rates_worker(), dp.start_polling(bot))
+        await asyncio.gather(
+            rates_worker(),
+            dp.start_polling(bot, handle_signals=False),
+        )
         # await dp.start_polling(bot)
     except Exception as _ex:
         logger.error(f"Bot error! {repr(_ex)}")
